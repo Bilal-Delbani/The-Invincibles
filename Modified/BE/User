@@ -1,0 +1,85 @@
+<?php
+// Database connection parameters
+$dbHost = '127.0.0.1';      // Change to your database host
+$dbUsername = 'root';       // Change to your database username
+$dbPassword = 'mpmdb';           // Change to your database password
+$dbName = 'mpm_db';  // Change to your database name
+// Create database connection
+$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// Set character set
+$conn->set_charset("utf8mb4");
+function getUserById($id) {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        return $user;
+    }
+    return null; // or throw an exception
+}
+
+function getAllUsers(){
+    global $conn;
+    $sql="SELECT * FROM users";
+    $result = $conn->query($sql);
+    $users = [];
+    while ($row = $result->fetch_assoc()) {
+        $users[] = $row;
+    }
+    return $users;
+}
+function deleteUser($id){
+    global $conn;
+    $sql="DELETE FROM users WHERE id = $id";
+    $result = $conn->query($sql);
+    if($result){
+        //deleted succesfully
+        return true;
+    }else{
+        //wasn't deleted
+        return false;
+    }
+}
+function updateUser($id, $username, $password, $nationality, $phoneNumber, $email) {
+    global $conn;
+    $sql = "UPDATE users SET username = '$username', password = '$password', nationality = '$nationality', phone_number = '$phoneNumber', email = '$email' WHERE id = '$id'";
+    $result = $conn->query($sql);
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+class User{
+
+    private $username;
+    private $password;
+    private $email;
+    private $options;
+
+    function __construct($username,$email,$password,$options)
+    {
+        $this->username=$username;
+        $this->email=$email;
+        $this->password=$password;
+        $this->options=$options;
+    }
+
+    function ChangePass($oldPassword,$newPassword,$confirmPassword){
+        if (($oldPassword==$this->password) && ($newPassword==$confirmPassword) && ($oldPassword!=$newPassword)){
+            return true;
+        }
+        return false;
+    }
+
+}
+
+?>

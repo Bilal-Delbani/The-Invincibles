@@ -1,0 +1,103 @@
+
+* {
+    box-sizing: border-box;
+}
+nav{
+    width:100%;
+    margin-bottom: 30px;
+    position:fixed;
+    top:0px;
+}
+#merch_nav{
+    top:60px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #444;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+.fas{
+    margin: 10px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+section {
+margin-bottom: 50px;
+padding: 20px;
+background-color: #fff;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+animation: fade-in 1s ease;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.container {
+    max-width: 800px;
+    margin-bottom: 20 auto;
+    padding: 20px;
+    max-width:100%;
+}
+
+.beat-animation {
+    animation: beat 1s infinite;
+}
+
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.default-nav{
+    width:98.85%;
+}

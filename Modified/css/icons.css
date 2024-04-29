@@ -1,0 +1,36 @@
+.icons{
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+
+}
+.icon-l{
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0;
+    margin-left:5px;
+}
+.barcelona{
+    background-image: url("../images/logos/barcelona.png");
+}
+.atletico-madrid{
+    background-image: url("../images/logos/Atletico-Madrid.png");
+
+}
+.borussia{
+    background-image: url("../images/logos/borussia.png");
+}
+.Osasuna{
+    background-image: url("../images/logos/Osasuna.png");
+}
+.psj{
+    background-image: url("../images/logos/psj.png");
+
+}
+.tickets{
+    background-image: url("../images/logos/tickets.png") !important;
+
+}

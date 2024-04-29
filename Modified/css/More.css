@@ -1,0 +1,235 @@
+/* Main layout */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+.carpool {
+  width: 80%;
+  margin: auto;
+  padding: 50px;
+  background-color: white;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+h2 {
+  font-size: 36px;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 16px;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Back button */
+.back_cont {
+  margin-bottom: 30px;
+}
+
+.back {
+  display: inline-block;
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.back:hover {
+  background-color: rgb(232, 32, 32);
+  color: white;
+}
+
+/* Form elements */
+label {
+  display: block;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+select,
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: rgb(232, 32, 32);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: black;
+}
+
+.Expectation {
+  width: 60%;
+}
+
+/* Table */
+.my-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.my-table th,
+.my-table td {
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.my-table th {
+  background-color: black;
+  color: white;
+}
+
+.my-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Highlighted row */
+.my-table tbody tr:hover {
+  background-color: #a48d8d29;
+}
+
+/* Reserve button */
+input[type="submit"].reserve {
+  background-color: black;
+  color: white;
+}
+
+input[type="submit"].reserve:hover {
+  background-color: rgb(232, 32, 32);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup form {
+ background-color: #fefefe;
+ margin: 15% auto;
+ padding: 30px;
+ width: 70%;
+ max-width: 400px;
+}
+
+.popup input[type="submit"] {
+  background-color: rgb(232, 32, 32);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.popup input[type="submit"]:hover {
+ background-color: black;
+}
+
+.popup .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup .close:hover {
+  color: #000;
+}
+
+.AddDrive {
+ background-color: rgb(232, 32, 32);
+ color: white;
+ border: none;
+ padding: 10px 20px;
+ font-size: 18px;
+ font-weight: bold;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+.AddDrive:hover {
+ background-color: black;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .carpool {
+    padding: 10px;
+  }
+
+  .my-table th,
+  .my-table td {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  input[type="text"],
+  input[type="submit"],
+  select {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  h2,
+  h5,
+  h6 {
+    font-size: 18px;
+  }
+
+  h3 {
+    color: rgb(232, 32, 32);
+  }
+}

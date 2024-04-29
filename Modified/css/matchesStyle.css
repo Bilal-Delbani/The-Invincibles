@@ -1,0 +1,221 @@
+/* //this css file contains all the style classes that are relevant to the matches z */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+header {
+  background-color: #293241;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+main {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.match-block {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.2   s ease-in-out;
+  border-radius: 93px / 65px;
+}
+
+.match-block:hover {
+  transform: scale(1.02);
+}
+
+.match-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.home-team img,
+.away-team img {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    /* background-color: #eec60a; */
+    margin-bottom: 5px;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  min-width: 140px;
+}
+
+.score-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.score {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #293241;
+  margin-bottom: 5px;
+}
+
+.match-details {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7f8fa6;
+  text-align: center;
+}
+
+.goal-scorers {
+  background-color:  #293241;;
+  padding: 10px;
+  widows: 100%;
+  min-height: 130px;
+}
+
+.home-team-goals {
+  list-style-type: none;
+  width: 50%;
+  float: left;
+}.away-team-goals {
+  list-style-type: none;
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+
+.goal-scorer {
+  font-weight: bold;
+  color: var(--header-link-hover-color);
+
+
+}
+
+
+  
+/* Set a default font size and line height */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Apply responsive styles for screens smaller than 768px */
+@media (max-width: 768px) {
+  .match-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .match-info {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .score-info {
+    text-align: center;
+  }
+  .team-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .team-info img {
+    width: 50px;
+    height: 50px;
+    object-fit: fill;
+    margin-right: 1rem;
+  }
+  .team-name {
+    text-align: center;
+  }
+  .goal-scorers {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .home-team-goals {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .away-team-goals {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .home-goal {
+    float: left;
+  }
+  .away-goal {
+    float: right;
+  }
+  .icon{
+    height: 50px;
+    width: 50px;
+    
+  }
+
+@media (max-width: 767px) {
+
+    .match-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .team-info, .score-info {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .away-team {
+        margin-top: 1em;
+    }
+
+    .goal-scorers {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    
+    .home-team-goals {
+        width: 100%;
+        float: none;
+    }
+
+    .away-team-goals {
+        width: 100%;
+        float: none;
+    }
+}
+
+}
+

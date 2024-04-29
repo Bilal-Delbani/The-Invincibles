@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign up</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="icon" type="../image/x-icon" href="../images/favicon-32x32.png">
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="../images/rsmile.avif" style="object-fit: cover;" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <img src="../images/logo1.png" alt="logo" class="logo">
+              </div>
+              <p class="login-card-description">Register an account</p>
+              <form id="login-form" method="post" action="../php/SignUpPage.php">
+                <div class="colums">
+                  <div class="form-group">
+                    <label for="fname" class="sr-only" style="float: left;">First Name</label>
+                    <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name*">
+                  </div>
+                  <div class="form-group">
+                    <label for="fname" class="sr-only">Last Name</label>
+                    <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name*">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email address*">
+                </div>
+                <div class="form-group mb-4">
+                  <label for="password" class="sr-only">Password</label>
+                  <input type="password" name="PASSWORD" id="password" class="form-control" placeholder="Enter a Password*">
+                  <span id="password-message" class="text-danger" style="display: none;">Password should contain at least 8 characters, including special characters, numbers, small and capital letters.</span>
+                </div>
+              
+                <div class="form-group mb-4">
+                  <label for="confirmPassword" class="sr-only">Confirm Password</label>
+                  <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" placeholder="Confirm Password*">
+                </div>
+                <input type="submit" name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Sign Up">
+                <div class="custom-control custom-checkbox login-card-check-box">
+                  <input name="remeber_me" type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember me</label>
+                  <br><br>
+                </div>  
+              </form>
+              <p class="login-card-footer-text">Already Have An Account? <a href="../index.php" class="text-reset">Login here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../js/alert_script.js"></script>
+  <script>
+    $(document).ready(function () {
+    // Function to validate password
+    function validatePassword(password) {
+        // Regular expressions for different character types
+        var uppercaseRegex = /[A-Z]/;
+        var lowercaseRegex = /[a-z]/;
+        var numberRegex = /[0-9]/;
+        var specialCharRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
+        // Check if the password meets all criteria
+        return password.length >= 8 &&
+               uppercaseRegex.test(password) &&
+               lowercaseRegex.test(password) &&
+               numberRegex.test(password) &&
+               specialCharRegex.test(password);
+    }
+
+    $('#login').click(function (e) {
+        e.preventDefault();
+        var formData = $('#login-form').serialize();
+        var password = $('#password').val(); // Get the password field value
+        var confirmPassword = $('#confirmPassword').val(); // Get the confirm password field value
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert('Password and Confirm Password do not match.');
+            return;
+        }
+
+        // If passwords match, proceed with further validation
+        if (!validatePassword(password)) {
+            // Display message under password input field
+            $('#password-message').text('Password should contain at least 8 characters, including special characters, numbers, small and capital letters.');
+            $('#password-message').show(); // Show the message
+            return;
+        } else {
+            $('#password-message').text(''); // Clear the message if password is valid
+            $('#password-message').hide(); // Hide the message
+        }
+
+        // If passwords match and meet the criteria, proceed with form submission
+        $.ajax({
+    type: 'POST',
+    url: '../php/SignUpPage.php',
+    data: formData,
+    success: function (response) {
+        if (response.trim() === "done") {
+            myAlert('Sign up was successful, please continue', 'more_info.php', 'Continue');
+        } else if (response.trim() === "reg-email") {
+            myAlert('Your email is already registered with us', '../index.php', 'Login');
+        } else if (response.trim() === "wrong") {
+            myAlert('Something went wrong. Please try again', 'signup.html', 'Try again');
+        } else if (response.trim() === "password_criteria_error") {
+            // Display message under password input field
+            $('#password-message').text('Password should contain at least 8 characters, including special characters, numbers, small and capital letters.');
+            $('#password-message').show(); // Show the message
+        } else {
+            myAlert('Please fill all fields', 'signup.html', 'OK');
+        }
+    }
+});
+
+    });
+});
+
+  </script>
+  
+</body>
+</html>

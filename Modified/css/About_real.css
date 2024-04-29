@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+}
+
+
+h1 {
+    font-size: 36px;
+    color: #333333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    animation: glow-animation 2s ease-in-out infinite;
+    text-align:center;
+}
+
+@keyframes glow-animation {
+    0% {
+        text-shadow: 0 0 5px #ff00a2;
+    }
+    50% {
+        text-shadow: 0 0 20px #ff00a2;
+    }
+    100% {
+        text-shadow: 0 0 5px #ff00a2;
+    }
+}
+
+p {
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.5;
+    animation: slide-animation 1s ease-in-out;
+}
+
+@keyframes slide-animation {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.highlight {
+    background-color: #ff00a2;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#first{
+margin-top:50px;
+}
+
+header{
+margin-top:80px;
+}
